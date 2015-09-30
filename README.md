@@ -1,7 +1,7 @@
 ************************************************************************
 Introduction:
 
-This application is a web application for a Dashboard. It’s written in Play framework, using Akka actor model. Basically, it pulls data from dashboard_mart database, populates data into am charts, and displays the charts.
+This application is a web application for a Dashboard. It’s written in Play framework, using Akka actor model. Basically, it pulls data from a database, populates data into am charts, and displays the charts.
 
 ************************************************************************
 
@@ -71,7 +71,7 @@ Workflow of date picker:
 Date picker is set to a default start-date (read from database) and default end-date (current date). Every time user click on a new category, the date is reset to this default dates. When user selected customized date range, and click submit, a message will be sent to all charts he/she is watching, these charts then record the date info in a hash map, and create queries to get a new set of data, pass to the front-end. 
 
 Workflow of database checking and data updating:
-Each chartActor performs a check every 3 seconds (can be changed easily in chartActor in val clock) using the default date. If the result changes, they query using user’s customized date range and send new data to the userActors. UserActors then send message to their javascript file. 
+Each chartActor performs a check every 3 seconds using the default date. If the result changes, they query using user’s customized date range and send new data to the userActors. UserActors then send message to their javascript file. 
 
 ************************************************************************
 
