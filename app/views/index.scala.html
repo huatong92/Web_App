@@ -1,0 +1,78 @@
+@import play.mvc.Http.Context.Implicit._
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bridg-it</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://html.pixolio.com/bt/main_site/js/library/kit.js"></script>
+	    <script src='@routes.Assets.versioned("javascripts/ws.js")' type="text/javascript"></script>
+	
+		<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
+		<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/calendar.css")'>
+
+		<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="http://cdn.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="http://cdn.amcharts.com/lib/3/serial.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/radar.js"></script>
+		
+	</head>
+	<body data-ws-url="@routes.Application.ws.webSocketURL(request)">
+		<div id="header"> 
+			<img id="bridgit" src='@routes.Assets.versioned("images/outside-header.jpg")' />	
+			<img class="icon" src='@routes.Assets.versioned("images/User.png")' />
+			<img class="icon" src='@routes.Assets.versioned("images/Gear.png")' />
+			<img class="icon" src='@routes.Assets.versioned("images/Mail.png")' />
+			<img class="icon" src='@routes.Assets.versioned("images/Bell.png")' />
+		</div>
+		<div id="left">
+			<br><br>
+			<!-- <ul>
+			  <li><a id="incident">Incident</a></li>
+			  <li><a id="people">People</a></li>
+			  <li><a id="report">Report</a></li>
+			  <li><a id="resolution">Resolution</a></li>
+			</ul> -->
+			<button type="button" id="incident">Incident</button> <br><br>
+			<button type="button" id="people">People</button> <br><br>
+			<button type="button" id="report">Report</button> <br><br>
+			<button type="button" id="resolution">Resolution</button>
+		</div>
+		<form>
+			<input type="hidden" value="" id="start-value"> 
+			<input type="hidden" value="" id="end-value"> 
+			
+			From:  <input type="text" class="date" id="start-text" />
+
+			&nbsp &nbsp &nbsp 
+			To:  <input type="text" class="date" id="end-text" />
+			
+			&nbsp &nbsp &nbsp <button type="button" id="submit">submit</button>
+		</form>
+		<div class="charts">
+			<div class="chart" id="location_month_1"></div>
+			<div class="chart" id="location_week_1"></div>
+			<div class="chart" id="location_day_1"></div>
+			<div class="chart" id="location_bar_1"></div>
+			<div class="chart" id="harassment_month_1"></div>
+			<div class="chart" id="harassment_week_1"></div>
+			<div class="chart" id="harassment_day_1"></div>
+			<div class="chart" id="harassment_bar_1"></div>
+			<div class="chart" id="bias_month_1"></div>
+			<div class="chart" id="bias_week_1"></div>
+			<div class="chart" id="bias_day_1"></div>
+			<div class="chart" id="bias_bar_1"></div>
+			<div class="chart" id="by_gender_2"></div>
+			<div class="chart" id="by_grade_2"></div>
+			<div class="chart" id="reporter_relation_2"></div>
+			<div class="chart" id="gender_mix_2"></div>
+			<div class="chart" id="report_age_3"></div>
+			<div class="chart" id="evidence_3"></div>
+			<div class="chart" id="evidence_restriction_3"></div>
+			<div class="chart" id="report_status_3"></div>
+			<div class="chart" id="supportive_4"></div>
+			<div class="chart" id="punitive_4"></div>
+			<div class="chart" id="restorative_4"></div>
+		</div>
+	</body>
+</html>

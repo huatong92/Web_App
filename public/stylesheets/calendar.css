@@ -1,0 +1,215 @@
+
+/***************************************************************************** custom: calendar */
+.calendar {
+    display: inline;
+    position: relative;
+    left: 0;
+    top: 0;
+    vertical-align: top;
+    line-height: normal;
+}
+
+.calendar.dynamic {
+    display: block;
+    position: absolute;
+}
+
+.calendar .calendar-content {
+    z-index: 1001;
+    background: #f8f8f8;
+    vertical-align: top;
+    border-radius: 0 0 4px 4px;
+}
+
+.calendar.dynamic .calendar-content {
+    position: absolute;
+    margin-top: 5px;
+    box-shadow: 0 2px 7px -7px #000;
+}
+
+.calendar.static .calendar-content {
+    position: static;
+    display: inline-block;
+}
+
+.calendar table {
+    table-layout: fixed;
+    empty-cells: show;
+    border-spacing: 0;
+}
+
+.calendar.range table {
+    float: left;
+}
+
+.calendar table thead th {
+    padding: 2px 0;
+    font-weight: normal;
+    text-align: center;
+    color: #fff;
+    background: #1379f1;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzNhYTZmMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMzc5ZjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background-image: -webkit-linear-gradient(top, #3aa6f2 0%, #1379f1 100%);
+    background-image: linear-gradient(to bottom, #3aa6f2 0%, #1379f1 100%);
+}
+
+.calendar table thead th span {
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+}
+
+.calendar table thead th a {
+    display: block;
+    height: 26px;
+    line-height: 26px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.calendar table thead th a.calendar-prev {
+    width: 26px;
+    text-indent: -3000px;
+    background: url('../images/calendar-prev.png') no-repeat center center;
+}
+
+.calendar.range table thead th a.calendar-prev {
+    display: none;
+}
+.calendar.range table:first-child thead th a.calendar-prev {
+    display: block;
+}
+
+.calendar table thead th a.calendar-next {
+    width: 26px;
+    text-indent: -3000px;
+    background: url('../images/calendar-next.png') no-repeat center center;
+}
+
+.calendar.range table thead th a.calendar-next {
+    display: none;
+}
+.calendar.range table:last-child thead th a.calendar-next {
+    display: block;
+}
+
+.calendar table thead td {
+    padding: 5px 0;
+    font-size: 8px;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.calendar table tbody td {
+    padding: 0;
+    font-weight: normal;
+    text-align: center;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+}
+.calendar table tbody td:first-child {
+    border-left: none;
+}
+
+.calendar table tbody td a {
+    display: block;
+    height: 26px;
+    width: 26px;
+    line-height: 26px;
+    color: #666;
+    font-size: 11px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    background: #dedede;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VkZWRlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkZWRlZGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background-image: -webkit-linear-gradient(top, #ededed 0%, #dedede 100%);
+    background-image: linear-gradient(to bottom, #ededed 0%, #dedede 100%);
+}
+
+.calendar table tbody td a.today {
+    color: #fff;
+    background: #6ebbef;
+    background-image: -moz-linear-gradient(top,  #6ebbef 0%, #3b8fef 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6ebbef), color-stop(100%,#3b8fef));
+    background-image: -webkit-linear-gradient(top,  #6ebbef 0%,#3b8fef 100%);
+    background-image: -o-linear-gradient(top,  #6ebbef 0%,#3b8fef 100%);
+    background-image: -ms-linear-gradient(top,  #6ebbef 0%,#3b8fef 100%);
+    background-image: linear-gradient(to bottom,  #6ebbef 0%,#3b8fef 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ebbef', endColorstr='#3b8fef',GradientType=0 );
+}
+
+.calendar table tbody td a:hover {
+    color: #fff;
+    background: #1379f1;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzNhYTZmMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMzc5ZjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background-image: -webkit-linear-gradient(top, #3aa6f2 0%, #1379f1 100%);
+    background-image: linear-gradient(to bottom, #3aa6f2 0%, #1379f1 100%);
+}
+
+.calendar table tbody td a.selected {
+    color: #fff;
+    background: #ff9023;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmYjExOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjkwMjMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background-image: -webkit-linear-gradient(top, #ffb119 0%, #ff9023 100%);
+    background-image: linear-gradient(to bottom, #ffb119 0%, #ff9023 100%);
+}
+
+.calendar table tbody td a.inactive {
+    color: #999;
+    background: #f8f8f8;
+    cursor: default;
+}
+
+.calendar table tbody td span {
+    display: block;
+    height: 26px;
+    width: 26px;
+    line-height: 26px;
+    color: #b4b3b3;
+    font-size: 11px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    background: #ececec;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y1ZjVmNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlY2VjZWMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #ececec 100%);
+    background-image: linear-gradient(to bottom, #f5f5f5 0%, #ececec 100%);
+}
+
+.calendar.range table tbody td span {
+    text-indent: -1000px;
+    overflow: hidden;
+}
+
+
+
+.calendar-clear {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: url('../../img/global/icons/remove.png') no-repeat 0 0;
+    cursor: pointer;
+}
+.calendar-clear:hover {
+    background-position: 0 -14px;
+}
+
+
+.calendar-picker {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    width: 32px;
+    height: 31px;
+    background: url('../../img/global/icons/calendar.png') no-repeat 0 0;
+    cursor: pointer;
+    vertical-align: top;
+}
+
